@@ -1,0 +1,22 @@
+div._demo--container
+  include ../mixins/sampleInput.jade
+
+  h2.base--h2.use--header Analyze an image
+  div Upload an image for secure visual recognition.
+  +sampleInput('use')
+
+  .loading.use--loading.display-none
+    .loader-container
+      svg.loader(viewBox='25 25 50 50')
+        circle.loader__path(cx='50', cy='50', r='20')
+    p.base--p.use--loading-message.loading--message Watson is processing the image...
+  .error.use--error.display-none
+    img.use--error-image.error--image(src='images/icons/alert.svg')
+    p.base--p.use--error-message.error--message The app is not available right now...
+  .use--output.display-none
+    h2.base--h2.use--output-header Analysis result...
+    .use--output-row
+      .use--output-image-container
+        img.use--output-image
+      #box.boxes
+      .use--output-data
